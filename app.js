@@ -14,12 +14,26 @@ function addTask(){
         li.appendChild(span);
     }
     inputBox.value = ''; // clear after add
+    saveData()// call saveData function anytime something added
 }
 
 listContainer.addEventListener('click', function(e){
     if(e.target.tagName === 'LI'){
         e.target.classList.toggle("checked"); // triggers checked styling
+        saveData()// call saveData function anytime something checked
     }
-    else if(e.target.tagName === "SPAN")
-    e.target.parentElement.remove(); // delete when span element clicked
+    else if(e.target.tagName === "SPAN"){
+        e.target.parentElement.remove(); // delete when span element clicked
+    saveData()// call saveData function anytime something deleted
+    }
 }, false);
+
+// store tasks in browser so they do not delete on refresh
+function saveData(){
+    localStorage.setItem('data', listContainer.innerHTML);
+}
+function showTasks(){
+    listContainer.innerHTML = localStorage.getItem('data');
+} // recalls data on refresh
+
+showTasks()
