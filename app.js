@@ -15,3 +15,11 @@ function addTask(){
     }
     inputBox.value = ''; // clear after add
 }
+
+listContainer.addEventListener('click', function(e){
+    if(e.target.tagName === 'LI'){
+        e.target.classList.toggle("checked"); // triggers checked styling
+    }
+    else if(e.target.tagName === "SPAN")
+    e.target.parentElement.remove(); // delete when span element clicked
+}, false);
