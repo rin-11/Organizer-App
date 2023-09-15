@@ -12,3 +12,22 @@
     background: linear-gradient(135deg, #153677, #4e085f );
     padding: 10px;
 }
+.todo {
+    width: 100%;
+    max-width: 350px;
+    background: #c88b8b;
+    margin: 100px auto 200px;
+    padding: 40px 20px 30px;
+    border-radius: 30px; 
+}
+.todo h2 {
+    color: #4e085f;
+    display: flex;
+    align-items: center;
+    margin: 20px;
+}
+
+.todo h2 img {
+    width: 30px;
+    margin-left: 10px;
+}
