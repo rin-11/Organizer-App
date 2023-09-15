@@ -1,15 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Kurale&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Mooli&display=swap');
 *  {
     margin: 0;
     padding: 0;
-    font-family: 'Mooli', sans-serif;
+    font-family: 'Kurale', serif;
     box-sizing: border-box;
+    letter-spacing: 5px;
 }
 
 .container {
     width: 100%;
     min-height: 100vh;
-    background: linear-gradient(135deg, #153677, #4e085f );
+    background: linear-gradient(135deg, #445c8e, #562462 );
     padding: 10px;
 }
 .todo {
@@ -25,11 +27,7 @@
     display: flex;
     align-items: center;
     margin-bottom: 20px;
-}
-
-.todo h2 img {
-    width: 30px;
-    margin-left: 10px;
+    font-size: 50px;
 }
 
 .row {
@@ -66,6 +64,8 @@ padding: 12px 8px 12px 50px;
 user-select: none;
 cursor: pointer;
 position: relative;
+font-family: 'Mooli', sans-serif;
+letter-spacing: 2px;
 }
 
 ul li::before{
