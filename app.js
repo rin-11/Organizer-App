@@ -38,7 +38,38 @@ function showTasks(){
 
 showTasks()
 
-// function to change list name
+// Function to change the list name
+function renameTaskTitle() {
+    const inputElement = document.getElementById('todo');
+    const taskTitle = document.querySelector('.todo h2');
+
+    // Get the value from the input element and set it as the text content
+    taskTitle.textContent = inputElement.value;
+
+    // Save the updated list name to local storage
+    saveListName(inputElement.value);
+}
+
+// Function to save the list name to local storage
+function saveListName(listName) {
+    localStorage.setItem('listName', listName);
+}
+
+// Call the renameTaskTitle function to set the list name when the page loads
+window.addEventListener('load', function () {
+    const storedListName = localStorage.getItem('listName');
+    if (storedListName) {
+        const inputElement = document.getElementById('todo');
+        inputElement.value = storedListName;
+        renameTaskTitle();
+    }
+});
+
+// Example usage to change the list name when a button is clicked
+document.querySelector('button').addEventListener('click', function () {
+    renameTaskTitle();
+    saveListItems();
+});
 
 
 
