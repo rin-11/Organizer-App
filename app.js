@@ -71,6 +71,47 @@ document.querySelector('button').addEventListener('click', function () {
     saveListItems();
 });
 
+function setListName(newName) {
+    const listNameElement = document.getElementById('list-name');
+    listNameElement.textContent = newName;
+}
+
+function createNewList() {
+    const newListName = prompt("Enter the name for the new list:");
+
+    if (newListName !== null && newListName.trim() !== '') {
+        // Clone the existing .todo div to create a new list
+        const todoDiv = document.querySelector('.todo').cloneNode(true);
+
+        // Set the new list's name
+        setListName(newListName);
+
+        // Clear the new list's items
+        const listContainer = todoDiv.querySelector('#list-container');
+        listContainer.innerHTML = '';
+
+        // Add event listeners for the new list
+        const newButton = todoDiv.querySelector('button');
+        const newInputBox = todoDiv.querySelector('#input-box');
+        const newListContainer = todoDiv.querySelector('#list-container');
+
+        newButton.addEventListener('click', addTask);
+        newListContainer.addEventListener('click', function(e) {
+            if (e.target.tagName === 'LI') {
+                e.target.classList.toggle("checked");
+                saveData();
+            } else if (e.target.tagName === "SPAN") {
+                e.target.parentElement.remove();
+                saveData();
+            }
+        });
+
+        // Append the new list to the document
+        document.body.appendChild(todoDiv);
+    }
+}
 
 
-// function to add new list
+
+
+
